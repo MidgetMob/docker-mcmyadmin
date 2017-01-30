@@ -1,15 +1,19 @@
-FROM java:7u111
+FROM java:latest
 MAINTAINER Jon Schulberger <jschoulzy@gmail.com>
 
-RUN	apt-get -y update && \
-	apt-get -y upgrade
+EXPOSE 8080
+EXPOSE 25565
+
+RUN adduser mcmyadmin --disabled-login
 
 WORKDIR	/usr/local
 RUN	wget http://mcmyadmin.com/Downloads/etc.zip && \
 	unzip -u etc.zip && \
 	rm -f etc.zip
 
-WORKDIR	/mnt/mcmyadmin
+USER mcmyadmin
+
+WORKDIR	/home/mcmyadmin
 RUN	wget http://mcmyadmin.com/Downloads/MCMA2-Latest.zip && \
 	unzip -u MCMA2-Latest.zip && \
 	rm -f MCMA2-Latest.zip && \
