@@ -1,4 +1,4 @@
-FROM java:latest
+FROM java:7u111
 MAINTAINER Jon Schulberger <jschoulzy@gmail.com>
 
 EXPOSE 8080
