@@ -22,4 +22,6 @@ RUN	wget http://mcmyadmin.com/Downloads/MCMA2-Latest.zip && \
 	rm -f MCMA2_glibc26_2.zip && \
 	./MCMA2_Linux_x86_64 -setpass mcmyadmin -configonly
 
+VOLUME /home/mcmyadmin/Minecraft
+
 CMD ["./MCMA2_Linux_x86_64"]
